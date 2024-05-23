@@ -5,6 +5,7 @@
     "build:prod": "webpack --env mode=production"
   },
   "devDependencies": {
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.13",
     "@svgr/webpack": "^8.1.0",
     "@types/node": "^20.12.12",
     "@types/react": "^18.3.2",
@@ -15,6 +16,8 @@
     "css-loader": "^7.1.1",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.0",
+    "react-refresh": "^0.14.2",
+    "react-refresh-typescript": "^2.0.9",
     "style-loader": "^4.0.0",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
