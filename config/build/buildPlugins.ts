@@ -4,13 +4,14 @@ import { Configuration } from "webpack";
 import { BuildOptions } from "./types/types";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin"
+import path from "path";
 
 export function buildPlugins({ mode, paths }: BuildOptions): Configuration["plugins"] {
     const isProd = mode === 'production';
     const isDev = mode === 'development';
 
     const plugins: Configuration["plugins"] = [
-        new HtmlWebpackPlugin({ template: paths.html }),
+        new HtmlWebpackPlugin({ template: paths.html, favicon: path.resolve(paths.public, 'favicon.ico') }),
     ]
 
     if (isDev) {

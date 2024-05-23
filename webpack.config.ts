@@ -13,7 +13,8 @@ export default (env: EnvVariables) => {
         output: path.resolve(__dirname, 'build'),
         entry: path.resolve(__dirname, 'src', 'app', 'appEntry.tsx'),
         html: path.resolve(__dirname, 'public', 'index.html'),
-        src: path.resolve(__dirname, 'src')
+        src: path.resolve(__dirname, 'src'),
+        public: path.resolve(__dirname, 'public')
      } 
 
     const config: webpack.Configuration = buildWebpack({
