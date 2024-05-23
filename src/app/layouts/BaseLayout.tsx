@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom'
-import '../../shared/styles/global.css'
+import '@/shared/styles/global.css'
 import * as styles from './styles/BaseLayout.module.css'
 
 export default function BaseLayout() {
