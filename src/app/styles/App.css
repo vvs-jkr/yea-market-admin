@@ -1,0 +1,17 @@
+:root {
+  /* Primary palette */
+  --color-warm-black: #3a3845;
+  --color-beige-peach: #f7ccac;
+  --color-light-brown: #c69b7b;
+  --color-green: #826f66;
+
+  /* Neutral colors */
+  --color-neutral-800: #3a3845;
+  --color-neutral-700: #595667;
+  --color-neutral-600: #807f86;
+  --color-neutral-500: #a6a6a8;
+  --color-neutral-400: #cac9cf;
+  --color-neutral-300: #e5e5e5;
+  --color-neutral-200: #f7f6f5;
+  --color-white: #ffffff;
+}
