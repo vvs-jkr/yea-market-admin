@@ -4,6 +4,8 @@ import ChevronRight from './ChevronRight.svg'
 import ChevronUp from './ChevronUp.svg'
 import Heart from './Heart.svg'
 import Search from './Search.svg'
+import Checkmark from './Checkmark.svg';
+import Close from './Close.svg';
 
 const icons = {
   ChevronDown,
@@ -11,7 +13,9 @@ const icons = {
   ChevronRight,
   ChevronUp,
   Heart,
-  Search
+  Search,
+  Checkmark,
+  Close
 }
 
 export default icons

@@ -31,5 +31,6 @@ export interface TextProps extends React.ComponentProps<'text'> {
   type: typographyTypes
   tagName: string
   weight?: weightTypes
+  color?: string
   children: React.ReactNode
 }
