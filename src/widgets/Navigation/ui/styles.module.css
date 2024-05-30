@@ -1,0 +1,23 @@
+.navigation {
+  max-width: 288px;
+  height: 100dvh;
+  padding: 25px;
+  background-color: var(--color-white);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.navigation > *:not(:last-child) {
+  border-bottom: 1px solid #F1F3F6;
+  padding-bottom: 10px;
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  margin-top:auto;
+}
