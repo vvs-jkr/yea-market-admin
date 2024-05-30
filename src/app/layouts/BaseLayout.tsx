@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import '@/app/styles/App.css'
-import * as styles from './styles/BaseLayout.module.css'
+import styles from './styles/BaseLayout.module.css'
 
 export default function BaseLayout() {
   return (
