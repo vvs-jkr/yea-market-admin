@@ -1,0 +1,14 @@
+.link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background-color:var(--color-white);
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.active {
+  background-color: var(--color-neutral-700);
+  color: var(--color-white);
+}

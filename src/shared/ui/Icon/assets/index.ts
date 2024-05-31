@@ -6,6 +6,11 @@ import Heart from './Heart.svg'
 import Search from './Search.svg'
 import Checkmark from './Checkmark.svg';
 import Close from './Close.svg';
+import Box from './Box.svg';
+import Contacts from './Contacts.svg';
+import Logout from './Logout.svg';
+import Settings from './Settings.svg';
+import Trending from './Trending.svg';
 
 const icons = {
   ChevronDown,
@@ -15,7 +20,12 @@ const icons = {
   Heart,
   Search,
   Checkmark,
-  Close
+  Close,
+  Box,
+  Contacts,
+  Logout,
+  Settings,
+  Trending
 }
 
 export default icons
