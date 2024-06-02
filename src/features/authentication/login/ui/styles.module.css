@@ -1,0 +1,54 @@
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.inputsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.buttonsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.description {
+  color: var(--color-admin-secondary);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.52px;
+}
+
+.input {
+  border-radius: 8px;
+  border: 1px solid #e2e5ea;
+  height: 52px;
+  padding: 0 16px;
+}
+
+.input::placeholder {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.label > input {
+  margin-right: 16px;
+}

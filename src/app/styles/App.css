@@ -1,17 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap');
+
 @font-face {
-	font-family: 'Garamond';
-	font-style: normal;
-	font-weight: 400;
-	src: local('Garamond Text'),
-		url('../../shared/lib/fonts/Garamond/Garamond-Regular.ttf') format('ttf')
+  font-family: 'Garamond';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('Garamond Text'),
+    url('../../shared/lib/fonts/Garamond/Garamond-Regular.ttf') format('ttf');
 }
 
 @font-face {
-	font-family: 'Garamond';
-	font-style: normal;
-	font-weight: 700;
-	src: local('Garamond Text'),
-		url('../../shared/lib/fonts/Garamond/Garamond-Bold.ttf') format('ttf')
+  font-family: 'Garamond';
+  font-style: normal;
+  font-weight: 700;
+  src:
+    local('Garamond Text'),
+    url('../../shared/lib/fonts/Garamond/Garamond-Bold.ttf') format('ttf');
 }
 
 :root {
@@ -34,4 +38,8 @@
 
   --ff-primary: 'Inter', sans-serif;
   --ff-secondary: 'Garamond', serif;
+
+  /* Admin panel colors */
+  --color-admin-primary: #1e354e;
+  --color-admin-secondary: #828d9e;
 }
