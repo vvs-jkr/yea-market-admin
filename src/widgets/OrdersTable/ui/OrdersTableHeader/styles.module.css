@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  gap: 10px
+}
+
+.item {
+  display: flex;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.wrapper > div {
+  flex-grow: 1;
+}
+
+.wrapper > div:first-child {
+  flex-grow: 3;
+}
+
+.searchContainer {
+  align-items: center;
+}
+
+.search {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+}
+
+.search::placeholder {
+  color: #828D9E;
+  font-weight: 500;
+}
+
+.download {
+  justify-content: center;
+  gap: 10px;
+}

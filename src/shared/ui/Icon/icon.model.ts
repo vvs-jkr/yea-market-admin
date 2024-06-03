@@ -2,7 +2,7 @@ import icons from './assets'
 
 export type IconType = keyof typeof icons
 
-export type IconSize = '16' | '20' | '24' | '36' | '52' | '60' | 16 | 20 | 24 | 36 | 52 | 60
+export type IconSize = '8' | '16' | '20' | '24' | '36' | '52' | '60' | 8 | 16 | 20 | 24 | 36 | 52 | 60
 
 export interface IconProps {
   icon: IconType

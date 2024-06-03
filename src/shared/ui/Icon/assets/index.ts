@@ -11,6 +11,8 @@ import Contacts from './Contacts.svg';
 import Logout from './Logout.svg';
 import Settings from './Settings.svg';
 import Trending from './Trending.svg';
+import Download from './Download.svg'
+import DottedMenu from './DottedMenu.svg'
 
 const icons = {
   ChevronDown,
@@ -25,7 +27,9 @@ const icons = {
   Contacts,
   Logout,
   Settings,
-  Trending
+  Trending,
+  Download,
+  DottedMenu
 }
 
 export default icons

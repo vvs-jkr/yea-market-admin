@@ -1,0 +1,13 @@
+.row > td {
+  text-align: center;
+  vertical-align: middle;
+  padding-block: 8px;
+}
+
+.status {
+  display: inline-block;
+  padding: 4px 20px;
+  border: 1px solid #E2E5EA;
+  border-radius: 8px;
+  background-color: var(--color-white);
+}
