@@ -1,6 +1,6 @@
 .wrapper {
   display: flex;
-  gap: 10px
+  gap: 10px;
 }
 
 .item {
@@ -10,8 +10,10 @@
   background-color: #fff;
 }
 
-.wrapper > div {
+.wrapper > * {
   flex-grow: 1;
+  border: 1px solid #E2E5EA;
+  border-radius: 8px;
 }
 
 .wrapper > div:first-child {

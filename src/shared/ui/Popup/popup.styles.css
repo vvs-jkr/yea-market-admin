@@ -1,0 +1,16 @@
+.popup-container {
+  position: relative;
+}
+
+.popup-content {
+  width: 194px;
+  position: absolute;
+  top: 35px;
+  right: 0px;
+  z-index: 2;
+  padding: 8px;
+  background-color: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 2px 5px 15px 0 rgba(159, 159, 159, 0.45);
+  z-index: 999;
+}

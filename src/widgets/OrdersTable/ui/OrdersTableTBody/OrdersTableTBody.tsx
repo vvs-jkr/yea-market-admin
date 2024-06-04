@@ -1,6 +1,6 @@
+import { SettingProductPopup } from "@/features/product/setting"
 import { ordersData } from "@/shared/constants/ordersData"
 import Checkbox from "@/shared/ui/Checkbox/Checkbox"
-import Icon from "@/shared/ui/Icon/Icon"
 
 import * as styles from "./styles.module.css"
 
@@ -21,7 +21,7 @@ const OrdersTableTBody = () => {
               <span className={styles.status}>{status}</span>  
             </td>
             <td>
-              <Icon icon="DottedMenu" color={isCompleted ? '#7F8DA0' : '#DDDFE3'}/>
+              <SettingProductPopup isCompleted={isCompleted} />
             </td>
           </tr>
         )

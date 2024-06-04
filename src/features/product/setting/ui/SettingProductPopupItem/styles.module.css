@@ -1,0 +1,19 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background-color: var(--color-white);
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.item:not(.active):hover{
+  background-color: var(--color-neutral-200);
+}
+
+.active {
+  background-color: #353E5C;
+  color: var(--color-white);
+}

@@ -18,8 +18,6 @@ const OrdersTableHeader = () => {
         <Icon icon="Download"/>
         Download
       </a>
-
-      
     </div>
   )
 }
