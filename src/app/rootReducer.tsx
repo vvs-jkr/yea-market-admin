@@ -1,6 +1,6 @@
-import { authApi } from '@/entities/auth/api/authApi'
+import { baseApi } from '@/entities/auth/api/baseApi'
 import { combineReducers } from '@reduxjs/toolkit'
 
 export const rootReducer = combineReducers({
-  [authApi.reducerPath]: authApi.reducer
+  [baseApi.reducerPath]: baseApi.reducer
 })

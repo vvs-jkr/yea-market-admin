@@ -3,11 +3,11 @@ import { rootReducer } from './rootReducer'
 import { TypedUseSelectorHook } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { authApi } from '@/entities/auth/api/authApi'
+import { baseApi } from '@/entities/auth/api/baseApi'
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }).concat(authApi.middleware)
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }).concat(baseApi.middleware)
 })
 
 export type RootState = ReturnType<typeof rootReducer>

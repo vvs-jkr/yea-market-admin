@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './styles.module.css'
 import Button from '@/shared/ui/Button/Button'
-import { useRegistrMutation } from '@/entities/auth/api/authApi'
+import { useRegisterMutation } from '@/entities/auth/api/baseApi'
 
 const RegisterForm = () => {
   const [firstName, setFirstName] = useState<string>('')
@@ -10,7 +10,7 @@ const RegisterForm = () => {
   const [phone, setPhone] = useState<string>('')
   const [password, setPassword] = useState<string>('')
 
-  const [register] = useRegistrMutation()
+  const [register, { isLoading }] = useRegisterMutation()
 
   const onRegister = async () => {
     if (!email || !password) return
@@ -54,7 +54,13 @@ const RegisterForm = () => {
       </label>
 
       <div className={styles.buttonsWrapper}>
-        <Button variant="light-form" label="Submit" style={{ width: '100%' }} onClick={() => onRegister()} />
+        <Button
+          variant="light-form"
+          label="Submit"
+          style={{ width: '100%' }}
+          onClick={onRegister}
+          disabled={isLoading}
+        />
       </div>
       <span className={styles.description}>
         This is a website management system; to gain access you need to contact the system administrator.
