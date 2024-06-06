@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom'
 import '@/app/styles/App.css'
-import * as styles from './styles/BaseLayout.module.css'
+import { FormPage } from '@/pages/auth'
 
 export default function BaseLayout() {
   return (
     <div>
-      <h1 className={styles.title}>Base layout</h1>
+      <FormPage />
       <Outlet />
     </div>
   )
