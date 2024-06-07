@@ -1,37 +1,40 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './styles.module.css'
 import Button from '@/shared/ui/Button/Button'
 import { useLoginMutation } from '@/entities/auth/api/baseApi'
+import { useForm } from 'react-hook-form'
+import { validateRules } from '@/shared/utils/validateForm'
+import { yupResolver } from '@hookform/resolvers/yup'
+
+export interface ILoginForm {
+  email: string
+  password: string
+}
 
 const LoginForm = () => {
-  const [email, setEmail] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
-
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const email = e.target.value
-    setEmail(email.trim().toLowerCase())
-  }
-
-  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const password = e.target.value
-    setPassword(password.trim())
-  }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm({
+    resolver: yupResolver(validateRules)
+  })
 
   const [login, { isLoading }] = useLoginMutation()
 
-  const onSubmit = async () => {
-    if (!email || !password) return
-    await login({
-      email,
-      password
-    })
+  const onSubmitHandler = (data: ILoginForm) => {
+    console.log({ data })
+    reset()
   }
 
   return (
-    <form className={styles.formWrapper}>
+    <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmitHandler)}>
       <div className={styles.inputsWrapper}>
-        <input className={styles.input} type="text" placeholder="E-mail" onChange={handleEmailChange} />
-        <input className={styles.input} type="password" placeholder="Password" onChange={handlePasswordChange} />
+        <input className={styles.input} type="text" placeholder="E-mail" {...register('email')} />
+        <p>{errors.email?.message}</p>
+        <input className={styles.input} type="password" placeholder="Password" {...register('password')} />
+        <p>{errors.password?.message}</p>
       </div>
 
       <label className={styles.label}>
@@ -40,7 +43,7 @@ const LoginForm = () => {
       </label>
 
       <div className={styles.buttonsWrapper}>
-        <Button variant="light-form" label="Submit" style={{ width: '100%' }} onClick={onSubmit} disabled={isLoading} />
+        <Button variant="light-form" label="Submit" type="submit" style={{ width: '100%' }} disabled={isLoading} />
       </div>
       <span className={styles.description}>
         This is a website management system; to gain access you need to contact the system administrator.
