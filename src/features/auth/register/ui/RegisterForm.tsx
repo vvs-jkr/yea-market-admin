@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styles from './styles.module.css'
 import Button from '@/shared/ui/Button/Button'
 import { useRegisterationMutation } from '@/entities/auth/api/baseApi'
@@ -6,11 +6,10 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { IUser } from '@/entities/auth/model/types'
 import { registerValidateRules } from '@/shared/utils/validateRules'
-import { ErrorsMessages } from '../../types'
 import Alert from '@/shared/ui/Alert/Alert'
+import { useErrorsQueue } from '@/shared/lib/hooks/useErrorsQueue'
 
 const RegisterForm = () => {
-  const [errorsQueue, setIsErrorsQueue] = useState([])
   const [registration, { isLoading }] = useRegisterationMutation()
   const {
     register,
@@ -21,39 +20,7 @@ const RegisterForm = () => {
     resolver: yupResolver(registerValidateRules)
   })
 
-  useEffect(() => {
-    if (errors.password) {
-      setIsErrorsQueue((prev) => [...prev, { message: ErrorsMessages.password }])
-    }
-
-    if (errors.email) {
-      setIsErrorsQueue((prev) => [...prev, { message: ErrorsMessages.email }])
-    }
-
-    if (errors.firstName) {
-      setIsErrorsQueue((prev) => [...prev, { message: ErrorsMessages.firstName }])
-    }
-
-    if (errors.firstName) {
-      setIsErrorsQueue((prev) => [...prev, { message: ErrorsMessages.lastName }])
-    }
-
-    if (errors.phone) {
-      setIsErrorsQueue((prev) => [...prev, { message: ErrorsMessages.phone }])
-    }
-  }, [errors])
-
-  useEffect(() => {
-    if (errorsQueue.length === 0) {
-      return
-    }
-
-    const timer = setTimeout(() => {
-      setIsErrorsQueue((prevQueue) => prevQueue.slice(1))
-    }, 3000)
-
-    return () => clearTimeout(timer)
-  }, [errorsQueue])
+  const errorsQueue = useErrorsQueue({ errors })
 
   const onSubmitHandler = async (data: IUser) => {
     await registration(data)
