@@ -3,11 +3,11 @@ import styles from './styles.module.css'
 import Button from '@/shared/ui/Button/Button'
 import { useLoginMutation } from '@/entities/auth/api/baseApi'
 import { useForm } from 'react-hook-form'
-import { validateRules } from '@/shared/utils/validateForm'
 import { yupResolver } from '@hookform/resolvers/yup'
 import Alert from '@/shared/ui/Alert/Alert'
 import { ErrorsMessages, ILoginForm } from '../../types'
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query'
+import { authValidateRules } from '@/shared/utils/validateRules'
 
 const LoginForm = () => {
   const [errorsQueue, setIsErrorsQueue] = useState([])
@@ -18,7 +18,7 @@ const LoginForm = () => {
     formState: { errors },
     reset
   } = useForm({
-    resolver: yupResolver(validateRules)
+    resolver: yupResolver(authValidateRules)
   })
 
   useEffect(() => {
@@ -55,7 +55,6 @@ const LoginForm = () => {
   }, [errorsQueue])
 
   const onSubmitHandler = async (data: ILoginForm) => {
-    console.log(data)
     await login(data)
     reset()
   }

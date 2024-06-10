@@ -1,50 +1,116 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './styles.module.css'
 import Button from '@/shared/ui/Button/Button'
-import { useRegisterMutation } from '@/entities/auth/api/baseApi'
+import { useRegisterationMutation } from '@/entities/auth/api/baseApi'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
+import { IUser } from '@/entities/auth/model/types'
+import { registerValidateRules } from '@/shared/utils/validateRules'
+import { ErrorsMessages } from '../../types'
+import Alert from '@/shared/ui/Alert/Alert'
 
 const RegisterForm = () => {
-  const [firstName, setFirstName] = useState<string>('')
-  const [lastName, setLastName] = useState<string>('')
-  const [email, setEmail] = useState<string>('')
-  const [phone, setPhone] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
+  const [errorsQueue, setIsErrorsQueue] = useState([])
+  const [registration, { isLoading }] = useRegisterationMutation()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm({
+    resolver: yupResolver(registerValidateRules)
+  })
 
-  const [register, { isLoading }] = useRegisterMutation()
+  useEffect(() => {
+    if (errors.password) {
+      setIsErrorsQueue((prev) => [...prev, { message: ErrorsMessages.password }])
+    }
 
-  const onRegister = async () => {
-    if (!email || !password) return
-    await register({
-      firstName: firstName.trim().toLowerCase(),
-      lastName: lastName.trim().toLowerCase(),
-      email: email.trim().toLowerCase(),
-      phone: phone.trim(),
-      password: password.trim()
-    })
+    if (errors.email) {
+      setIsErrorsQueue((prev) => [...prev, { message: ErrorsMessages.email }])
+    }
+
+    if (errors.firstName) {
+      setIsErrorsQueue((prev) => [...prev, { message: ErrorsMessages.firstName }])
+    }
+
+    if (errors.firstName) {
+      setIsErrorsQueue((prev) => [...prev, { message: ErrorsMessages.lastName }])
+    }
+
+    if (errors.phone) {
+      setIsErrorsQueue((prev) => [...prev, { message: ErrorsMessages.phone }])
+    }
+  }, [errors])
+
+  useEffect(() => {
+    if (errorsQueue.length === 0) {
+      return
+    }
+
+    const timer = setTimeout(() => {
+      setIsErrorsQueue((prevQueue) => prevQueue.slice(1))
+    }, 3000)
+
+    return () => clearTimeout(timer)
+  }, [errorsQueue])
+
+  const onSubmitHandler = async (data: IUser) => {
+    await registration(data)
+    reset()
+  }
+
+  const alertStyles = {
+    width: '468px',
+    position: 'absolute' as 'relative',
+    overflow: 'hidden',
+    top: '50px',
+    right: '25px'
   }
 
   return (
-    <form className={styles.formWrapper}>
+    <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmitHandler)}>
+      {errorsQueue &&
+        errorsQueue.map((error, index) => {
+          if (index === 0) {
+            return <Alert key={index} styles={alertStyles} type="error" title="ошибка" description={error.message} />
+          }
+        })}
       <div className={styles.inputsWrapper}>
         <input
+          style={errors.firstName && { border: '1px solid #F77B7D' }}
           className={styles.input}
           type="text"
           placeholder="FirstName"
-          onChange={(e) => setFirstName(e.target.value)}
+          {...register('firstName')}
         />
         <input
+          style={errors.lastName && { border: '1px solid #F77B7D' }}
           className={styles.input}
           type="text"
           placeholder="LastName"
-          onChange={(e) => setLastName(e.target.value)}
+          {...register('lastName')}
         />
-        <input className={styles.input} type="text" placeholder="E-mail" onChange={(e) => setEmail(e.target.value)} />
-        <input className={styles.input} type="text" placeholder="Phone" onChange={(e) => setPhone(e.target.value)} />
         <input
+          style={errors.email && { border: '1px solid #F77B7D' }}
+          className={styles.input}
+          type="text"
+          placeholder="E-mail"
+          {...register('email')}
+        />
+        <input
+          style={errors.phone && { border: '1px solid #F77B7D' }}
+          className={styles.input}
+          type="text"
+          placeholder="Phone"
+          {...register('phone')}
+        />
+        <input
+          style={errors.password && { border: '1px solid #F77B7D' }}
           className={styles.input}
           type="text"
           placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
+          {...register('password')}
         />
       </div>
 
@@ -54,13 +120,7 @@ const RegisterForm = () => {
       </label>
 
       <div className={styles.buttonsWrapper}>
-        <Button
-          variant="light-form"
-          label="Submit"
-          style={{ width: '100%' }}
-          onClick={onRegister}
-          disabled={isLoading}
-        />
+        <Button variant="light-form" label="Submit" style={{ width: '100%' }} type="submit" disabled={isLoading} />
       </div>
       <span className={styles.description}>
         This is a website management system; to gain access you need to contact the system administrator.

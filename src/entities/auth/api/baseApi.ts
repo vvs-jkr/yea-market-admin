@@ -26,7 +26,7 @@ const extendedApi = baseApi.injectEndpoints({
         }
       }
     }),
-    register: builder.mutation<AuthResponse, IUser>({
+    registeration: builder.mutation<AuthResponse, IUser>({
       query: (body) => ({
         url: '/register',
         method: 'POST',
@@ -46,4 +46,4 @@ const extendedApi = baseApi.injectEndpoints({
   })
 })
 
-export const { useLoginMutation, useRegisterMutation } = extendedApi
+export const { useLoginMutation, useRegisterationMutation } = extendedApi
