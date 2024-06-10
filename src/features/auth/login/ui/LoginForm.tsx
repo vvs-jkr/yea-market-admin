@@ -1,17 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './styles.module.css'
 import Button from '@/shared/ui/Button/Button'
 import { useLoginMutation } from '@/entities/auth/api/baseApi'
 import { useForm } from 'react-hook-form'
 import { validateRules } from '@/shared/utils/validateForm'
 import { yupResolver } from '@hookform/resolvers/yup'
-
-export interface ILoginForm {
-  email: string
-  password: string
-}
+import Alert from '@/shared/ui/Alert/Alert'
+import { ErrorsMessages, ILoginForm } from '../../types'
+import { FetchBaseQueryError } from '@reduxjs/toolkit/query'
 
 const LoginForm = () => {
+  const [errorsQueue, setIsErrorsQueue] = useState([])
+  const [login, { isLoading, isError, error }] = useLoginMutation()
   const {
     register,
     handleSubmit,
@@ -21,19 +21,75 @@ const LoginForm = () => {
     resolver: yupResolver(validateRules)
   })
 
-  const [login, { isLoading }] = useLoginMutation()
+  useEffect(() => {
+    if (errors.password) {
+      setIsErrorsQueue((prev) => [...prev, { message: ErrorsMessages.password }])
+    }
 
-  const onSubmitHandler = (data: ILoginForm) => {
-    console.log({ data })
+    if (errors.email) {
+      setIsErrorsQueue((prev) => [...prev, { message: ErrorsMessages.email }])
+    }
+
+    if (isError && 'status' in error) {
+      const fetchError = error as FetchBaseQueryError
+      if (fetchError.status === 401) {
+        setIsErrorsQueue((prev) => [...prev, { message: ErrorsMessages.unauthorized }])
+      }
+    }
+  }, [errors, error, isError])
+
+  useEffect(() => {
+    if (errorsQueue.length === 0) {
+      return
+    }
+
+    const timer = setTimeout(() => {
+      setIsErrorsQueue((prevQueue) => {
+        const newQueue = [...prevQueue]
+        newQueue.pop()
+        return newQueue
+      })
+    }, 3000)
+
+    return () => clearTimeout(timer)
+  }, [errorsQueue])
+
+  const onSubmitHandler = async (data: ILoginForm) => {
+    console.log(data)
+    await login(data)
     reset()
+  }
+
+  const alertStyles = {
+    width: '468px',
+    position: 'absolute' as 'relative',
+    overflow: 'hidden',
+    top: '50px',
+    right: '25px'
   }
 
   return (
     <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmitHandler)}>
+      {errorsQueue &&
+        errorsQueue.map((error, index) => {
+          return <Alert key={index} styles={alertStyles} type="error" title="ошибка" description={error.message} />
+        })}
       <div className={styles.inputsWrapper}>
-        <input className={styles.input} type="text" placeholder="E-mail" {...register('email')} />
+        <input
+          style={errors.email && { border: '1px solid #F77B7D' }}
+          className={styles.input}
+          type="text"
+          placeholder="E-mail"
+          {...register('email')}
+        />
         <p>{errors.email?.message}</p>
-        <input className={styles.input} type="password" placeholder="Password" {...register('password')} />
+        <input
+          style={errors.password && { border: '1px solid #F77B7D' }}
+          className={styles.input}
+          type="password"
+          placeholder="Password"
+          {...register('password')}
+        />
         <p>{errors.password?.message}</p>
       </div>
 
