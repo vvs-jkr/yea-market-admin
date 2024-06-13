@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect } from 'react'
 import styles from './styles.module.css'
 import Button from '@/shared/ui/Button/Button'
 import { useRegisterationMutation } from '@/entities/auth/api/baseApi'
@@ -6,11 +6,13 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { IUser } from '@/entities/auth/model/types'
 import { registerValidateRules } from '@/shared/utils/validateRules'
-import Alert from '@/shared/ui/Alert/Alert'
-import { useErrorsQueue } from '@/shared/lib/hooks/useErrorsQueue'
+import { useAppDispatch } from '@/app/appStore'
+import { pushErrors } from '@/entities/auth'
 
 const RegisterForm = () => {
+  const dispatch = useAppDispatch()
   const [registration, { isLoading }] = useRegisterationMutation()
+
   const {
     register,
     handleSubmit,
@@ -20,29 +22,17 @@ const RegisterForm = () => {
     resolver: yupResolver(registerValidateRules)
   })
 
-  const errorsQueue = useErrorsQueue({ errors })
-
   const onSubmitHandler = async (data: IUser) => {
     await registration(data)
     reset()
   }
 
-  const alertStyles = {
-    width: '468px',
-    position: 'absolute' as 'relative',
-    overflow: 'hidden',
-    top: '50px',
-    right: '25px'
-  }
+  useEffect(() => {
+    dispatch(pushErrors(errors))
+  }, [errors, dispatch])
 
   return (
     <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmitHandler)}>
-      {errorsQueue &&
-        errorsQueue.map((error, index) => {
-          if (index === 0) {
-            return <Alert key={index} styles={alertStyles} type="error" title="ошибка" description={error.message} />
-          }
-        })}
       <div className={styles.inputsWrapper}>
         <input
           style={errors.firstName && { border: '1px solid #F77B7D' }}

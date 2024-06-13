@@ -1,31 +1,28 @@
-import { ErrorsMessagesType, errorMessages } from '@/shared/constants/errorMessages'
+import { ErrorsMessagesType } from '@/shared/constants/errorMessages'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 export type ErrorType = string
 
 const initialState: {
-  errorsQueue: ErrorType[]
+  errors: ErrorType[]
 } = {
-  errorsQueue: []
+  errors: []
 }
 
-const errorsSlice = createSlice({
+const authSlice = createSlice({
   name: 'errors',
   initialState,
   reducers: {
-    addErrorToQueue(state, action: PayloadAction<ErrorsMessagesType>) {
+    pushErrors(state, action: PayloadAction<ErrorsMessagesType>) {
       const errorsNames = Object.keys(action.payload)
-      errorsNames.forEach((errorName) => {
-        const errorMessage = errorMessages[errorName]
-        state.errorsQueue.push(errorMessage)
-      })
+      state.errors = [...errorsNames]
     },
-    removeErrorFromQueue(state) {
-      state.errorsQueue.slice(1)
+    deleteError(state) {
+      state.errors.shift()
     }
   }
 })
 
-export default errorsSlice.reducer
+export default authSlice.reducer
 
-export const { addErrorToQueue, removeErrorFromQueue } = errorsSlice.actions
+export const { pushErrors, deleteError } = authSlice.actions

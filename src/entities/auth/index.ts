@@ -1,3 +1,3 @@
-import slice, { addErrorToQueue, removeErrorFromQueue } from './model/slice'
+import slice, { pushErrors, deleteError } from './model/slice'
 
-export { slice, addErrorToQueue, removeErrorFromQueue }
+export { slice, pushErrors, deleteError }

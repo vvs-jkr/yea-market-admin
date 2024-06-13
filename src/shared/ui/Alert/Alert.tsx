@@ -4,11 +4,11 @@ import { AlertProps, alertTypes } from './alert.model'
 
 import './alert.styles.css'
 
-const Alert = ({ type, title, description, styles }: AlertProps) => {
+const Alert = ({ type, title, description, customClassName }: AlertProps) => {
   const color = alertTypes[type].color
   const icon = type === 'success' ? 'Checkmark' : 'Close'
   return (
-    <div className="alert-container" style={styles}>
+    <div className={`alert-container ${customClassName}`}>
       <div className="alert-icon" style={{ borderColor: color }}>
         <Icon icon={icon} color={color} />
       </div>

@@ -4,9 +4,7 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
   type: 'error' | 'success'
   title: string
   description: string
-  styles: {
-    [key: string]: string
-  }
+  customClassName?: string
 }
 
 export const alertTypes = {

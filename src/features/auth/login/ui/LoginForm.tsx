@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import styles from './styles.module.css'
 import Button from '@/shared/ui/Button/Button'
 import { useLoginMutation } from '@/entities/auth/api/baseApi'
@@ -7,7 +6,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { ILoginForm } from '../../types'
 import { authValidateRules } from '@/shared/utils/validateRules'
 import { useAppDispatch } from '@/app/appStore'
-import { addErrorToQueue } from '@/entities/auth/index'
+import { useEffect } from 'react'
+import { pushErrors } from '@/entities/auth/model/slice'
 
 const LoginForm = () => {
   const dispatch = useAppDispatch()
@@ -22,33 +22,17 @@ const LoginForm = () => {
     resolver: yupResolver(authValidateRules)
   })
 
-  useEffect(() => {
-    if (errors && Object.keys(errors).length > 0) {
-      dispatch(addErrorToQueue(errors))
-    }
-  }, [dispatch, errors])
-
   const onSubmitHandler = async (data: ILoginForm) => {
     await login(data)
     reset()
   }
 
-  const alertStyles = {
-    width: '468px',
-    position: 'absolute' as 'relative',
-    overflow: 'hidden',
-    top: '50px',
-    right: '25px'
-  }
+  useEffect(() => {
+    dispatch(pushErrors(errors))
+  }, [errors, dispatch])
 
   return (
     <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmitHandler)}>
-      {/* {errorsQueue &&
-        errorsQueue.map((error, index) => {
-          if (index === 0) {
-            return <Alert key={index} styles={alertStyles} type="error" title="ошибка" description={error} />
-          }
-        })} */}
       <div className={styles.inputsWrapper}>
         <input
           style={errors.email && { border: '1px solid #F77B7D' }}
