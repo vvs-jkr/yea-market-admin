@@ -28,6 +28,7 @@
   border: 1px solid #e2e5ea;
   height: 52px;
   padding: 0 16px;
+  outline: none;
 }
 
 .input::placeholder {
