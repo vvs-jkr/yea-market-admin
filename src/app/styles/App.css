@@ -26,7 +26,6 @@
   --color-green: #826f66;
 
   /* Neutral colors */
-  --color-neutral-900: #353E5C;
   --color-neutral-800: #3a3845;
   --color-neutral-700: #595667;
   --color-neutral-600: #807f86;
@@ -35,6 +34,15 @@
   --color-neutral-300: #e5e5e5;
   --color-neutral-200: #f7f6f5;
   --color-white: #ffffff;
+
+  /* Red colors */
+  --color-red-800: #af0932;
+  --color-red-700: #d50b3e;
+  --color-red-600: #f3164e;
+  --color-red-300: #f98ba6;
+  --color-red-200: #fbb1c4;
+  --color-red-100: #fdd8e1;
+  --color-red-25: #ffecf5;
 
   --ff-primary: 'Inter', sans-serif;
   --ff-secondary: 'Garamond', serif;
