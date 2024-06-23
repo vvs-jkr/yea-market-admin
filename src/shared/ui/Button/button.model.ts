@@ -1,11 +1,16 @@
 import React from 'react'
 
-export type ButtonVariantTypes = 'light' | 'dark' | 'light-outline' | 'dark-outline' | 'light-form' | 'dark-form'
+export type ButtonVariantTypes = 'primary' | 'secondary' | 'outline' | 'tertiary' | 'link'
 
-export interface ButtonProps extends React.ComponentProps<'button'> {
+export type ButtonSize = 'M' | 'L'
+
+export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   label?: string
-  variant: ButtonVariantTypes
+  variant?: ButtonVariantTypes
   className?: string
   iconLeft?: React.ReactNode
   iconRight?: React.ReactNode
+  size?: ButtonSize
+  destructive?: boolean
+  disabled?: boolean
 }
