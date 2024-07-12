@@ -8,7 +8,6 @@ import Checkmark from './Checkmark.svg'
 import Close from './Close.svg'
 import Box from './Box.svg'
 import Contacts from './Contacts.svg'
-import Logout from './Logout.svg'
 import Settings from './Settings.svg'
 import Trending from './Trending.svg'
 import Download from './Download.svg'
@@ -29,7 +28,6 @@ const icons = {
   Close,
   Box,
   Contacts,
-  Logout,
   Settings,
   Trending,
   Download,

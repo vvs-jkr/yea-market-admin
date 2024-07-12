@@ -3,7 +3,7 @@ import { IUser, AuthResponse } from '../model/types'
 
 export const baseApi = createApi({
   reducerPath: 'baseApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://api.yeasoft.ru/api/auth' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://server.yeasoft.ru/api/admin/auth' }),
   endpoints: () => ({})
 })
 
@@ -20,7 +20,7 @@ const extendedApi = baseApi.injectEndpoints({
         try {
           const result = await queryFulfilled
           const data = result.data
-          localStorage.setItem('market-accessToken', data.access_token)
+          localStorage.setItem('market-accessToken', data.accessToken)
         } catch (error) {
           console.error(error)
         }
@@ -37,7 +37,7 @@ const extendedApi = baseApi.injectEndpoints({
         try {
           const result = await queryFulfilled
           const data = result.data
-          localStorage.setItem('market-accessToken', data.access_token)
+          localStorage.setItem('market-accessToken', data.accessToken)
         } catch (error) {
           console.error(error)
         }

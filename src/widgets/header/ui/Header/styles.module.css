@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+.info {
+  font-family: var(--ff-primary);
+  color: var(--color-admin-primary);
+}
+
+.list {
+  display: flex;
+  gap: 12px;
+}
