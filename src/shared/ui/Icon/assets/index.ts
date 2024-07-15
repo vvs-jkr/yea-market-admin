@@ -8,7 +8,6 @@ import Checkmark from './Checkmark.svg'
 import Close from './Close.svg'
 import Box from './Box.svg'
 import Contacts from './Contacts.svg'
-import Logout from './Logout.svg'
 import Settings from './Settings.svg'
 import Trending from './Trending.svg'
 import Download from './Download.svg'
@@ -17,8 +16,12 @@ import ClickableArea from './ClickableArea.svg'
 import HardDrive from './HardDrive.svg'
 import Print from './Print.svg'
 import Trash from './Trash.svg'
+import GoToSite from './GoToSite.svg'
+import Logout from './Logout.svg'
 
 const icons = {
+  GoToSite,
+  Logout,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
@@ -29,7 +32,6 @@ const icons = {
   Close,
   Box,
   Contacts,
-  Logout,
   Settings,
   Trending,
   Download,

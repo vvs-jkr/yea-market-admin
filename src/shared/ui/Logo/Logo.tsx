@@ -1,5 +1,5 @@
 import { LogoProps } from './logo.model'
-import logo from './assets/logo.svg'
+import logo from './assets/Logo.svg'
 import styles from './styles.module.css'
 
 const Logo = ({ onClick, ...props }: LogoProps) => {

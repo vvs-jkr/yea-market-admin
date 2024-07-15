@@ -7,6 +7,6 @@ export interface IUser {
 }
 
 export interface AuthResponse {
-  access_token: string
+  accessToken: string
   user: IUser
 }
