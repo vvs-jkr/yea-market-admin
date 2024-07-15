@@ -16,8 +16,12 @@ import ClickableArea from './ClickableArea.svg'
 import HardDrive from './HardDrive.svg'
 import Print from './Print.svg'
 import Trash from './Trash.svg'
+import GoToSite from './GoToSite.svg'
+import Logout from './Logout.svg'
 
 const icons = {
+  GoToSite,
+  Logout,
   ChevronDown,
   ChevronLeft,
   ChevronRight,

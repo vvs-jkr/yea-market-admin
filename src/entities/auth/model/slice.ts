@@ -1,5 +1,5 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { ErrorsMessagesType } from '@/shared/constants/errorMessages'
-import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 export type ErrorType = string
 
@@ -10,7 +10,7 @@ const initialState: {
 }
 
 const authSlice = createSlice({
-  name: 'errors',
+  name: 'auth',
   initialState,
   reducers: {
     pushErrors(state, action: PayloadAction<ErrorsMessagesType>) {
@@ -19,10 +19,12 @@ const authSlice = createSlice({
     },
     deleteError(state) {
       state.errors.shift()
+    },
+    logout(state) {
+      state.errors = []
     }
   }
 })
 
 export default authSlice.reducer
-
-export const { pushErrors, deleteError } = authSlice.actions
+export const { pushErrors, deleteError, logout } = authSlice.actions

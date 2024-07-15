@@ -42,8 +42,23 @@ const extendedApi = baseApi.injectEndpoints({
           console.error(error)
         }
       }
+    }),
+    logout: builder.mutation<void, void>({
+      query: () => ({
+        url: '/logout',
+        method: 'POST'
+      }),
+
+      async onQueryStarted({}, { queryFulfilled }) {
+        try {
+          await queryFulfilled
+          localStorage.removeItem('market-accessToken')
+        } catch (error) {
+          console.error(error)
+        }
+      }
     })
   })
 })
 
-export const { useLoginMutation, useRegisterationMutation } = extendedApi
+export const { useLoginMutation, useRegisterationMutation, useLogoutMutation } = extendedApi
