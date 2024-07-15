@@ -1,3 +1,3 @@
-import FormPage from './ui/Page'
+import AuthPage from './ui/Page'
 
-export { FormPage }
+export { AuthPage }

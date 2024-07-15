@@ -1,12 +1,14 @@
 export interface IUser {
+  id: string
   firstName: string
   lastName: string
-  password: string
-  phone: string
   email: string
+  role: string
 }
 
 export interface AuthResponse {
-  accessToken: string
+  message: string
   user: IUser
+  accessToken: string
+  refreshToken: string
 }

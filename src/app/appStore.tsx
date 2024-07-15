@@ -3,7 +3,8 @@ import { rootReducer } from './rootReducer'
 import { TypedUseSelectorHook } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { baseApi } from '@/entities/auth/api/baseApi'
+import { baseApi } from '@/shared/api/baseApi'
+
 
 export const store = configureStore({
   reducer: rootReducer,

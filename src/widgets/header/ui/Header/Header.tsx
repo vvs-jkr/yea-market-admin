@@ -5,7 +5,7 @@ import { logout } from '@/entities/auth/model/slice'
 import Logo from '@/shared/ui/Logo/Logo'
 import Icon from '@/shared/ui/Icon/Icon'
 import styles from './styles.module.css'
-import { useLogoutMutation } from '@/entities/auth/api/baseApi'
+import { useLogoutMutation } from '@/entities/auth/api/authApi'
 
 const Header = () => {
   const dispatch = useDispatch()
