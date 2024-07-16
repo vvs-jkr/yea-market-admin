@@ -21,3 +21,7 @@
   display: flex;
   gap: 12px;
 }
+
+.item {
+  cursor: pointer;
+}

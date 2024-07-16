@@ -19,23 +19,8 @@ export const authApi = baseApi.injectEndpoints({
           console.error(error)
         }
       }
-    }),
-    logout: builder.mutation<void, void>({
-      query: () => ({
-        url: '/admin/auth/logout',
-        method: 'POST'
-      }),
-
-      async onQueryStarted({}, { queryFulfilled }) {
-        try {
-          await queryFulfilled
-          localStorage.removeItem('market-accessToken')
-        } catch (error) {
-          console.error(error)
-        }
-      }
     })
   })
 })
 
-export const { useLoginMutation, useLogoutMutation } = authApi
+export const { useLoginMutation } = authApi
