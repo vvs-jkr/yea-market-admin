@@ -1,20 +1,12 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
-import { logout } from '@/entities/auth/model/slice'
+import { Link } from 'react-router-dom'
 import Logo from '@/shared/ui/Logo/Logo'
 import Icon from '@/shared/ui/Icon/Icon'
 import styles from './styles.module.css'
+import { useHandleLogout } from '@/shared/utils/logoutUtil'
 
 const Header = () => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-
-  const handleLogout = async () => {
-    dispatch(logout())
-    localStorage.removeItem('market-accessToken')
-    navigate('/auth')
-  }
+  const handleLogout = useHandleLogout()
 
   return (
     <header className={styles.header}>
@@ -33,7 +25,9 @@ const Header = () => {
               </Link>
             </li>
             <li className={styles.item}>
-              <Icon icon="Logout" onClick={handleLogout} />
+              <Link to={'/auth'}>
+                <Icon icon="Logout" onClick={handleLogout} />
+              </Link>
             </li>
           </ul>
         </nav>

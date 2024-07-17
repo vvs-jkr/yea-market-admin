@@ -1,14 +1,33 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import styles from './styles.module.css'
+import { IconType } from '@/shared/ui/Icon/icon.model'
+import { useHandleLogout } from '@/shared/utils/logoutUtil'
+import MenuItem from '@/shared/ui/MenuItem/MenuItem'
+import { Link } from 'react-router-dom'
 import Icon from '@/shared/ui/Icon/Icon'
-import classNames from '@/shared/lib/utils/classNames'
 
-const SideBar: React.FC = () => {
+type MenuItemType = {
+  icon: IconType
+  text: string
+  path: string
+}
+
+const menuItems: MenuItemType[] = [
+  { icon: 'Trending', text: 'Orders', path: '/' },
+  { icon: 'Box', text: 'Products', path: '/' },
+  { icon: 'Contacts', text: 'Clients', path: '/' },
+  { icon: 'Settings', text: 'Settings', path: '/' }
+]
+
+const SideBar = () => {
   const [activeItem, setActiveItem] = useState<number | null>(0)
+  const handleLogout = useHandleLogout()
 
   const handleItemClick = (index: number): void => {
     setActiveItem(index)
+    if (menuItems[index].text === 'Logout') {
+      handleLogout()
+    }
   }
 
   return (
@@ -17,51 +36,31 @@ const SideBar: React.FC = () => {
         <img className={styles.image} />
         <h3 className={styles.role}>Admin</h3>
         <p className={styles.mail}>user@mail.ru</p>
+        <hr className={styles.line} />
       </div>
       <nav className={styles.menu}>
         <ul className={styles.list}>
-          <li
-            onClick={() => handleItemClick(0)}
-            className={classNames(styles.item, { [styles.active]: activeItem === 0 })}>
-            <Link to={'/'}>
-              <div className={styles.linkContent}>
-                <Icon icon="Trending" />
-                <span className={styles.text}>Orders</span>
-              </div>
-            </Link>
-          </li>
-          <li
-            onClick={() => handleItemClick(1)}
-            className={classNames(styles.item, { [styles.active]: activeItem === 1 })}>
-            <Link to={'/'}>
-              <div className={styles.linkContent}>
-                <Icon icon="Box" />
-                <span className={styles.text}>Products</span>
-              </div>
-            </Link>
-          </li>
-          <li
-            onClick={() => handleItemClick(2)}
-            className={classNames(styles.item, { [styles.active]: activeItem === 2 })}>
-            <Link to={'/'}>
-              <div className={styles.linkContent}>
-                <Icon icon="Contacts" />
-                <span className={styles.text}>Clients</span>
-              </div>
-            </Link>
-          </li>
-          <li
-            onClick={() => handleItemClick(3)}
-            className={classNames(styles.item, { [styles.active]: activeItem === 3 })}>
-            <Link to={'/'}>
-              <div className={styles.linkContent}>
-                <Icon icon="Settings" />
-                <span className={styles.text}>Settings</span>
-              </div>
-            </Link>
-          </li>
+          {menuItems.map((item, index) => (
+            <MenuItem
+              key={index}
+              index={index}
+              icon={item.icon}
+              text={item.text}
+              path={item.path}
+              isActive={activeItem === index}
+              onClick={() => handleItemClick(index)}
+            />
+          ))}
         </ul>
       </nav>
+      <div className={styles.logout}>
+        <Link to={'/auth'}>
+          <div className={styles.linkContent}>
+            <Icon icon="Logout" />
+            <span className={styles.text}>Logout</span>
+          </div>
+        </Link>
+      </div>
     </aside>
   )
 }

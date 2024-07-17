@@ -1,17 +1,23 @@
 .aside {
-  border: 1px solid red;
+  border: 1px solid #edeff5;
+  border-radius: 8px;
   margin-top: 10px;
   width: 288px;
-  height: 712px;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  padding: 25px;
 }
 
 .user {
-  text-align: center;
   width: 238px;
-  height: 165px;
+  max-height: 165px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .image {
@@ -35,7 +41,19 @@
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
-  margin-bottom: 31px;
+  margin-bottom: 10px;
+}
+
+.line {
+  color: var(--color-neutral-100);
+  width: 222px;
+}
+
+.parentMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .menu {
@@ -43,36 +61,21 @@
   height: 475px;
 }
 
-.list {
+.text {
+  margin-left: 12px;
   color: var(--color-admin-primary);
   font-size: 16px;
   line-height: 22px;
   font-weight: 500;
 }
 
-.item {
-  padding: 10px;
-  margin-bottom: 18px;
-  width: 100%;
-  cursor: pointer;
-}
-
-.text {
-  margin-left: 12px;
-}
-
 .list:last-child {
   border-bottom: 1px solid var(--color-neutral-100);
 }
 
-.linkContent {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.active {
-  background-color: var(--color-admin-primary);
-  color: var(--color-white);
-  border-radius: 8px;
+.logout {
+  padding: 0 10px;
+  width: 238px;
+  cursor: pointer;
+  margin: 0 auto;
 }

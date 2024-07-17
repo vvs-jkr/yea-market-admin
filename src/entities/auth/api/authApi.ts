@@ -19,8 +19,24 @@ export const authApi = baseApi.injectEndpoints({
           console.error(error)
         }
       }
+    }),
+    logout: builder.mutation<void, { headers: Record<string, string> }>({
+      query: ({ headers }) => ({
+        url: '/admin/auth/logout',
+        method: 'POST',
+        headers
+      }),
+
+      async onQueryStarted({}, { queryFulfilled }) {
+        try {
+          await queryFulfilled
+          localStorage.removeItem('market-accessToken')
+        } catch (error) {
+          console.error(error)
+        }
+      }
     })
   })
 })
 
-export const { useLoginMutation } = authApi
+export const { useLoginMutation, useLogoutMutation } = authApi
