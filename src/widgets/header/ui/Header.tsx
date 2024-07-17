@@ -1,13 +1,10 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '@/shared/ui/Logo/Logo'
 import Icon from '@/shared/ui/Icon/Icon'
 import styles from './styles.module.css'
-import { useHandleLogout } from '@/shared/utils/logoutUtil'
+import { LogoutButton } from '@/features/auth/logout'
 
 const Header = () => {
-  const handleLogout = useHandleLogout()
-
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -25,9 +22,7 @@ const Header = () => {
               </Link>
             </li>
             <li className={styles.item}>
-              <Link to={'/auth'}>
-                <Icon icon="Logout" onClick={handleLogout} />
-              </Link>
+              <LogoutButton short />
             </li>
           </ul>
         </nav>

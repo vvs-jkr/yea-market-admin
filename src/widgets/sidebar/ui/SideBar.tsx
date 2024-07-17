@@ -1,10 +1,8 @@
 import { useState } from 'react'
 import styles from './styles.module.css'
 import { IconType } from '@/shared/ui/Icon/icon.model'
-import { useHandleLogout } from '@/shared/utils/logoutUtil'
 import MenuItem from '@/shared/ui/MenuItem/MenuItem'
-import { Link } from 'react-router-dom'
-import Icon from '@/shared/ui/Icon/Icon'
+import { LogoutButton } from '@/features/auth/logout'
 
 type MenuItemType = {
   icon: IconType
@@ -21,13 +19,9 @@ const menuItems: MenuItemType[] = [
 
 const SideBar = () => {
   const [activeItem, setActiveItem] = useState<number | null>(0)
-  const handleLogout = useHandleLogout()
 
   const handleItemClick = (index: number): void => {
     setActiveItem(index)
-    if (menuItems[index].text === 'Logout') {
-      handleLogout()
-    }
   }
 
   return (
@@ -53,14 +47,7 @@ const SideBar = () => {
           ))}
         </ul>
       </nav>
-      <div className={styles.logout}>
-        <Link to={'/auth'}>
-          <div className={styles.linkContent}>
-            <Icon icon="Logout" />
-            <span className={styles.text}>Logout</span>
-          </div>
-        </Link>
-      </div>
+      <LogoutButton short={false} />
     </aside>
   )
 }

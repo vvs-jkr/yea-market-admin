@@ -2,7 +2,7 @@ import { logout } from '@/entities/auth/model/slice'
 import { useLogoutMutation } from '@/entities/auth/api/authApi'
 import { useDispatch } from 'react-redux'
 
-export const useHandleLogout = () => {
+export const useLogout = () => {
   const dispatch = useDispatch()
   const [logoutApi] = useLogoutMutation()
 
