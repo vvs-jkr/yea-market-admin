@@ -1,0 +1,27 @@
+.tabList {
+  border-bottom: 1px solid var(--color-neutral-300);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 20px;
+}
+
+.tab {
+  border: none;
+  background: none;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 600;
+  color: var(--color-admin-primary);
+  cursor: pointer;
+  outline: none;
+  padding: 10px 0;
+}
+
+.tab[data-selected] {
+  border-bottom: 3px solid var(--color-admin-primary);
+}
+
+.tab[data-selected='true'] {
+  border-bottom: none;
+}
