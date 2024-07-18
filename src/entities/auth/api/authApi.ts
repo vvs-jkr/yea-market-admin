@@ -20,10 +20,11 @@ export const authApi = baseApi.injectEndpoints({
         }
       }
     }),
-    logout: builder.mutation<void, void>({
-      query: () => ({
+    logout: builder.mutation<void, { headers: Record<string, string> }>({
+      query: ({ headers }) => ({
         url: '/admin/auth/logout',
-        method: 'POST'
+        method: 'POST',
+        headers
       }),
 
       async onQueryStarted({}, { queryFulfilled }) {
