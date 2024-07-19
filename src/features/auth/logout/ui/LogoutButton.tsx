@@ -5,13 +5,14 @@ import { useLogout } from '../useLogout'
 
 type LogoutButtonProps = {
   short: boolean
+  className: string
 }
 
-const LogoutButton = ({ short }: LogoutButtonProps) => {
+const LogoutButton = ({ short, className }: LogoutButtonProps) => {
   const handleLogout = useLogout()
 
   return (
-    <div className={styles.logout}>
+    <div className={className}>
       <Link to={'/auth'}>
         <div className={styles.linkContent} onClick={handleLogout}>
           <Icon icon="Logout" />

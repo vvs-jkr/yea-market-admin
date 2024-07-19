@@ -11,14 +11,14 @@ type MenuItemType = {
 }
 
 const menuItems: MenuItemType[] = [
-  { icon: 'Trending', text: 'Orders', path: '/' },
-  { icon: 'Box', text: 'Products', path: '/' },
-  { icon: 'Contacts', text: 'Clients', path: '/' },
-  { icon: 'Settings', text: 'Settings', path: '/' }
+  { icon: 'Trending', text: 'Orders', path: '/orders' },
+  { icon: 'Box', text: 'Products', path: '/products' },
+  { icon: 'Contacts', text: 'Clients', path: '/clients' },
+  { icon: 'Settings', text: 'Settings', path: '/settings' }
 ]
 
 const SideBar = () => {
-  const [activeItem, setActiveItem] = useState<number | null>(0)
+  const [activeItem, setActiveItem] = useState<number | null>(null)
 
   const handleItemClick = (index: number): void => {
     setActiveItem(index)
@@ -47,7 +47,7 @@ const SideBar = () => {
           ))}
         </ul>
       </nav>
-      <LogoutButton short={false} />
+      <LogoutButton className={styles.logout} short={false} />
     </aside>
   )
 }

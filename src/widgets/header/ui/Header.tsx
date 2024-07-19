@@ -16,13 +16,13 @@ const Header = () => {
 
         <nav className={styles.nav}>
           <ul className={styles.list}>
-            <li>
+            <li className={styles.item}>
               <Link to={'/'}>
                 <Icon icon="GoToSite" />
               </Link>
             </li>
-            <li className={styles.item}>
-              <LogoutButton short />
+            <li>
+              <LogoutButton className={styles.logout} short />
             </li>
           </ul>
         </nav>

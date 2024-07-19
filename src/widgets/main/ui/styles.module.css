@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  max-width: 1110px;
+  margin: 0 auto;
+  margin-top: 8px;
+}
+
+.pages {
+  padding: 25px;
+  border-radius: 8px;
+  width: 808px;
+  min-height: 80vh;
+  max-height: 100%;
+  border: 1px solid #edeff5;
+}
