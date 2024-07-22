@@ -8,7 +8,7 @@
   justify-content: space-between;
   align-items: center;
   max-width: 1110px;
-  height: 82px;
+  height: var(--header-height);
   margin: 0 auto;
 }
 
@@ -17,11 +17,12 @@
   color: var(--color-admin-primary);
 }
 
-.list {
+.item {
   display: flex;
-  gap: 12px;
+  align-items: center;
 }
 
-.item {
-  cursor: pointer;
+.list {
+  display: flex;
+  gap: 10px;
 }

@@ -6,13 +6,6 @@
   font-weight: 500;
 }
 
-.logout {
-  padding: 0 10px;
-  width: 238px;
-  cursor: pointer;
-  margin: 0 auto;
-}
-
 .linkContent {
   display: flex;
   align-items: center;
