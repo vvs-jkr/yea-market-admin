@@ -51,4 +51,10 @@
   /* Admin panel colors */
   --color-admin-primary: #1e354e;
   --color-admin-secondary: #828d9e;
+
+  --header-height: 82px;
+
+  * {
+    box-sizing: border-box;
+  }
 }
