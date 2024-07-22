@@ -30,7 +30,7 @@ const SideBar = () => {
         <img className={styles.image} />
         <h3 className={styles.role}>Admin</h3>
         <p className={styles.mail}>user@mail.ru</p>
-        <hr className={styles.line} />
+        <div className={styles.line} />
       </div>
       <nav className={styles.menu}>
         <ul className={styles.list}>
@@ -46,6 +46,7 @@ const SideBar = () => {
             />
           ))}
         </ul>
+        <div className={styles.line} />
       </nav>
       <LogoutButton className={styles.logout} short={false} />
     </aside>

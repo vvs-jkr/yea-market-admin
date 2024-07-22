@@ -2,7 +2,6 @@
   border: 1px solid #edeff5;
   border-radius: 8px;
   width: 288px;
-  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,6 +16,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .image {
@@ -41,11 +41,12 @@
   line-height: 22px;
   font-weight: 400;
   margin-bottom: 10px;
+  position: relative;
 }
 
 .line {
-  color: var(--color-neutral-100);
   width: 222px;
+  border-bottom: 1px solid var(--color-neutral-100);
 }
 
 .menu {
@@ -53,8 +54,10 @@
   height: 475px;
 }
 
-.list:last-child {
-  border-bottom: 1px solid var(--color-neutral-100);
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .logout {

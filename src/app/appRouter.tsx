@@ -5,7 +5,6 @@ import { LazyOrdersPage } from '@/pages/OrdersPage'
 import { LazyProductsPage } from '@/pages/ProudctsPage'
 import { LazyClientsPage } from '@/pages/ClientsPage'
 import { LazySettingsPage } from '@/pages/SettingsPage'
-import { Suspense } from 'react'
 
 export const appRouter = createBrowserRouter([
   {
@@ -14,35 +13,19 @@ export const appRouter = createBrowserRouter([
     children: [
       {
         path: 'orders',
-        element: (
-          <Suspense>
-            <LazyOrdersPage />
-          </Suspense>
-        )
+        element: <LazyOrdersPage />
       },
       {
         path: 'products',
-        element: (
-          <Suspense>
-            <LazyProductsPage />
-          </Suspense>
-        )
+        element: <LazyProductsPage />
       },
       {
         path: 'clients',
-        element: (
-          <Suspense>
-            <LazyClientsPage />
-          </Suspense>
-        )
+        element: <LazyClientsPage />
       },
       {
         path: 'settings',
-        element: (
-          <Suspense>
-            <LazySettingsPage />
-          </Suspense>
-        )
+        element: <LazySettingsPage />
       }
     ]
   },
