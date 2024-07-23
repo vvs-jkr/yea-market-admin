@@ -6,7 +6,7 @@ import Button from '@/shared/ui/Button/Button'
 
 interface ModalBoxProps {
     isOpen: boolean
-    children: React.ReactElement
+    children: (props: { onAction: () => void }) => React.ReactElement;
     modalTitle: string
     actionButtonLabel: string
     onClose: () => void
@@ -28,7 +28,7 @@ export function ModalBox(props: ModalBoxProps) {
                         <button onClick={onClose} className={styles.closeButton}><Icon icon='Close' /></button>
                     </div>
                     <div className={styles.modalContent}>
-                        {React.cloneElement(children, { onAction: onAction })}
+                        {children({ onAction })}
                     </div>
                     <div className={styles.modalFooter}>
                         <Button onClick={onAction} label={actionButtonLabel} className={styles.actionButton} iconRight={<Icon icon='Checkmark' />} />
