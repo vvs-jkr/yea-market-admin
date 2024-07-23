@@ -5,7 +5,7 @@ import { Products } from '@/widgets/products/products'
 
 
 export default function ProductsPage() {
-  const mockTabList = [
+  const productsInfoTabs = [
     {
       name: 'Products',
       content: <Products />
@@ -27,7 +27,7 @@ export default function ProductsPage() {
 
   return (
     <div className={styles.pageWrapper}>
-      <Tabs tabsList={mockTabList} />
+      <Tabs tabsList={productsInfoTabs} />
     </div>
   )
 }
