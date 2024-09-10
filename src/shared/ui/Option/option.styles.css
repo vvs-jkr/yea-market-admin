@@ -1,0 +1,21 @@
+.option {
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    padding: 5px 12px;
+    list-style-type: none;
+}
+
+.option:hover{
+    background-color: var(--color-neutral-200);
+}
+
+.option-selected {
+    background-color: var(--color-neutral-300);
+    cursor: default;
+}
+
+.option-selected.option:hover{
+    background-color: var(--color-neutral-300);
+}

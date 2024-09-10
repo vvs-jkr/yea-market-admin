@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  max-width: 1110px;
+  margin: 0 auto;
+  margin-top: 8px;
+  height: calc(100vh - var(--header-height));
+  padding: 25px 0;
+}
+
+.pages {
+  padding: 25px;
+  border-radius: 8px;
+  width: 808px;
+  height: 100%;
+  border: 1px solid #edeff5;
+  overflow: auto;
+}

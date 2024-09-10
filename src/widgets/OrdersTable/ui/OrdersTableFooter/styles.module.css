@@ -1,0 +1,17 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdown {
+  width: 85px;
+  border: 1px solid #E2E5EA;
+}

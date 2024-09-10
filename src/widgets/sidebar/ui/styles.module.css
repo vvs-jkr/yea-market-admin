@@ -1,0 +1,68 @@
+.aside {
+  border: 1px solid #edeff5;
+  border-radius: 8px;
+  width: 288px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+}
+
+.user {
+  width: 238px;
+  max-height: 165px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.image {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: black;
+  margin-bottom: 10px;
+}
+
+.role {
+  color: var(--color-admin-primary);
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.mail {
+  color: var(--color-admin-secondary);
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.line {
+  width: 222px;
+  border-bottom: 1px solid var(--color-neutral-100);
+}
+
+.menu {
+  width: 238px;
+  height: 475px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.logout {
+  padding: 0 10px;
+  width: 238px;
+  cursor: pointer;
+  margin: auto auto 0 auto;
+}
