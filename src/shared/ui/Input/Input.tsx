@@ -10,7 +10,7 @@ const Input: React.FC<InputProps> = ({
   type,
   disabled,
   size,
-  focus,
+  autofocus,
   hasError,
   label,
   iconLeft,
