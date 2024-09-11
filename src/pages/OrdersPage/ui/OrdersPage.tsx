@@ -5,7 +5,7 @@ const OrdersPage = () => {
   return (
     <div>
       OrdersPage
-      <Input type="text" placeholder='Search for  Order ID, Item'  /> 
+      <Input type="text" placeholder='Search for  Order ID, Item' iconLeft='true' iconRight='true' variant='freeTextWithScroll' /> 
 		
     </div>
   )
