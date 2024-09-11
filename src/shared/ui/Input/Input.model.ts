@@ -10,7 +10,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   size?: InputSize
   destructive?: boolean
   disabled?: boolean
-  focus?: boolean
+  autofocus?: boolean
   hasError?: boolean
   label?: string
   placeholder?: string
