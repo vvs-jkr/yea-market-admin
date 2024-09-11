@@ -26,23 +26,7 @@ const Input: React.FC<InputProps> = ({
     inputWrapper_disabled: disabled
   })
 
-  const inputClasses = classNames(
-    'input',
-    {
-      input__simple: type === 'simple',
-      input__dropdown: type === 'dropdown',
-      input__freeTextWithoutScroll: type === 'freeTextWithoutScroll',
-      input__freeTextWithScroll: type === 'freeTextWithScroll',
-      input_disabled: disabled,
-      input_error: hasError
-    },
-    `inputSize_${size}`,
-    className
-  )
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value)
-  }
+  const inputClasses = classNames('input', `inputSize_${size}`, className)
 
   React.useEffect(() => {
     if (focus && inputRef.current) {
@@ -61,7 +45,6 @@ const Input: React.FC<InputProps> = ({
         placeholder={props.placeholder}
         value={inputValue}
         disabled={disabled}
-        onChange={handleChange}
         {...props}
       />
 
