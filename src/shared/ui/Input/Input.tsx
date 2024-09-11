@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { InputProps } from './Input.model'
 
@@ -7,18 +7,24 @@ import classNames from '@/shared/lib/utils/classNames'
 import Icon from '../Icon/Icon'
 
 const Input: React.FC<InputProps> = ({
-  type = 'text',
-  disabled = false,
-  size = 'S',
+  type,
+  disabled,
+  size,
   focus,
-  error = false,
+  hasError,
   label,
-  iconLeft = null,
-  iconRight = null,
+  iconLeft,
+  iconRight,
   className,
   ...props
 }: InputProps) => {
-  const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = React.useState('')
+  const inputRef = React.useRef<HTMLInputElement>(null)
+
+  const wrapperClasses = classNames('inputWrapper', {
+    inputWrapper_error: hasError,
+    inputWrapper_disabled: disabled
+  })
 
   const inputClasses = classNames(
     'input',
@@ -28,7 +34,7 @@ const Input: React.FC<InputProps> = ({
       input__freeTextWithoutScroll: type === 'freeTextWithoutScroll',
       input__freeTextWithScroll: type === 'freeTextWithScroll',
       input_disabled: disabled,
-      input_error: error
+      input_error: hasError
     },
     `inputSize_${size}`,
     className
@@ -38,11 +44,18 @@ const Input: React.FC<InputProps> = ({
     setInputValue(event.target.value)
   }
 
+  React.useEffect(() => {
+    if (focus && inputRef.current) {
+      inputRef.current.focus()
+    }
+  }, [focus])
+
   return (
-    <div className="inputWrapper">
-      {Boolean(iconLeft) && <Icon icon="Search" />}
+    <div className={wrapperClasses}>
+      {Boolean(iconLeft) && <Icon icon="Search" className="input__icon input__icon-left" />}
 
       <input
+        ref={inputRef}
         className={inputClasses}
         type={type}
         placeholder={props.placeholder}
@@ -51,7 +64,8 @@ const Input: React.FC<InputProps> = ({
         onChange={handleChange}
         {...props}
       />
-      {Boolean(iconRight) && <Icon icon="ChevronDown" />}
+
+      {Boolean(iconRight) && <Icon icon="ChevronDown" className="input__icon input__icon-right" />}
     </div>
   )
 }
