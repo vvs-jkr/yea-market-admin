@@ -1,0 +1,126 @@
+.d-12, 
+.d-11, 
+.d-10, 
+.d-9,
+.d-8,
+.d-7,
+.d-6,
+.d-5,
+.d-4,
+.d-3,
+.d-2,
+.d-1,
+.p-lg,
+.p-md,
+.p-def,
+.p-sm {
+  font-family: var(--ff-primary);
+  margin: 0;
+}
+
+.h-12,
+.h-11,
+.h-10,
+.h-9,
+.h-8,
+.h-7,
+.h-6 {
+  font-family: var(--ff-secondary);
+  margin: 0;
+}
+
+.d-12, .h-12 {
+  font-size: 96px;
+  line-height: 96px;
+}
+
+.d-11, .h-11 {
+  font-size: 72px;
+  line-height: 72px;
+}
+
+.d-10, .h-10 {
+  font-size: 60px;
+  line-height: 60px;
+}
+
+.d-9, .h-9 {
+  font-size: 48px;
+  line-height: 48px;
+}
+
+.d-8, .h-8 {
+  font-size: 36px;
+  line-height: 40px;
+}
+
+.d-7, .h-7 {
+  font-size: 30px;
+  line-height: 36px;
+}
+
+.d-6, .h-6 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.d-5 {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.d-4 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.d-3 {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.d-2 {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.d-1 {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.p-lg {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.p-md {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.p-def {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.p-sm {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.extra-bold {
+  font-weight: 800;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.regular {
+  font-weight: 400;
+}

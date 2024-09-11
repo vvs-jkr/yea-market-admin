@@ -1,0 +1,26 @@
+.item {
+  padding: 10px;
+  margin-bottom: 18px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.text {
+  margin-left: 12px;
+}
+
+.linkContent {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.active {
+  background-color: var(--color-admin-primary);
+  color: var(--color-white);
+  border-radius: 8px;
+}
+
+.logoutItem {
+  margin-top: auto;
+}

@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap');
+
+@font-face {
+  font-family: 'Garamond';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('Garamond Text'),
+    url('../../shared/lib/fonts/Garamond/Garamond-Regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Garamond';
+  font-style: normal;
+  font-weight: 700;
+  src:
+    local('Garamond Text'),
+    url('../../shared/lib/fonts/Garamond/Garamond-Bold.ttf') format('ttf');
+}
+
+:root {
+  /* Primary palette */
+  --color-warm-black: #3a3845;
+  --color-beige-peach: #f7ccac;
+  --color-light-brown: #c69b7b;
+  --color-green: #826f66;
+
+  /* Neutral colors */
+  --color-neutral-800: #3a3845;
+  --color-neutral-700: #595667;
+  --color-neutral-600: #807f86;
+  --color-neutral-500: #a6a6a8;
+  --color-neutral-400: #cac9cf;
+  --color-neutral-300: #e5e5e5;
+  --color-neutral-200: #f7f6f5;
+  --color-neutral-100: #f1f3f6;
+  --color-white: #ffffff;
+
+  /* Red colors */
+  --color-red-800: #af0932;
+  --color-red-700: #d50b3e;
+  --color-red-600: #f3164e;
+  --color-red-300: #f98ba6;
+  --color-red-200: #fbb1c4;
+  --color-red-100: #fdd8e1;
+  --color-red-25: #ffecf5;
+
+  --ff-primary: 'Inter', sans-serif;
+  --ff-secondary: 'Garamond', serif;
+
+  /* Admin panel colors */
+  --color-admin-primary: #1e354e;
+  --color-admin-secondary: #828d9e;
+  --color-border: #cac9cf;
+  --color-black: #000000;
+  --header-height: 82px;
+
+  * {
+    box-sizing: border-box;
+  }
+}

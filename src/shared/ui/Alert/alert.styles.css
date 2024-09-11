@@ -1,0 +1,22 @@
+.alert-container {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+  padding: 20px 30px;
+  border-radius: 8px;
+  background-color: var(--color-white);
+  box-shadow: 10px 15px 40px 0 rgba(26, 31, 39, 0.03), 2px 5px 15px 0 rgba(26, 31, 39, 0.22);
+}
+
+.alert-icon {
+  padding: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 8px;
+}
+
+.alert-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
