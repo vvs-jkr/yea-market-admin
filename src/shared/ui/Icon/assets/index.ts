@@ -18,6 +18,7 @@ import Print from './Print.svg'
 import Trash from './Trash.svg'
 import GoToSite from './GoToSite.svg'
 import Logout from './Logout.svg'
+import Save from './Save.svg'
 
 const icons = {
   GoToSite,
@@ -39,7 +40,8 @@ const icons = {
   ClickableArea,
   HardDrive,
   Print,
-  Trash
+  Trash,
+  Save
 }
 
 export default icons
