@@ -38,26 +38,17 @@ const LoginForm = () => {
   return (
     <form className={styles.formWrapper}>
       <div className={styles.inputsWrapper}>
-        <input
-          style={errors.email && { border: '1px solid #F77B7D' }}
+        <Input
           className={styles.input}
-          type="text"
+          style={errors.email && { border: '1px solid #F77B7D' }}
+          type="email"
           placeholder="E-mail"
           {...register('email')}
         />
 
         <Input
           className={styles.input}
-          style={errors.email && { border: '1px solid #F77B7D' }}
-          type='email'
-          placeholder="E-mail"
-          {...register('email')}
-        />
-
-		  
-        <input
           style={errors.password && { border: '1px solid #F77B7D' }}
-          className={styles.input}
           type="password"
           placeholder="Password"
           {...register('password')}
