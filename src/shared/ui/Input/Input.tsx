@@ -29,10 +29,14 @@ const Input: React.FC<InputProps> = ({
   const inputClasses = classNames('input', `inputSize_${size}`, className)
 
   React.useEffect(() => {
-    if (focus && inputRef.current) {
+    if (autofocus && inputRef.current) {
       inputRef.current.focus()
     }
-  }, [focus])
+  }, [autofocus])
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value)
+  }
 
   return (
     <div className={wrapperClasses}>
@@ -45,6 +49,7 @@ const Input: React.FC<InputProps> = ({
         placeholder={props.placeholder}
         value={inputValue}
         disabled={disabled}
+        onChange={handleInputChange}
         {...props}
       />
 

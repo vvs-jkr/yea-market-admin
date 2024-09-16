@@ -6,9 +6,10 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { ILoginForm } from '../../types'
 import { authValidateRules } from '@/shared/utils/validateRules'
 import { useAppDispatch } from '@/app/appStore'
-import { useEffect } from 'react'
+import React from 'react'
 import { pushErrors } from '@/entities/auth/model/slice'
 import { useNavigate } from 'react-router-dom'
+import Input from '@/shared/ui/Input/Input'
 
 const LoginForm = () => {
   const dispatch = useAppDispatch()
@@ -27,10 +28,10 @@ const LoginForm = () => {
   const onSubmitHandler = async (data: ILoginForm) => {
     await login(data)
     reset()
-    navigate('/');
+    navigate('/')
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     dispatch(pushErrors(errors))
   }, [errors, dispatch])
 
@@ -44,6 +45,16 @@ const LoginForm = () => {
           placeholder="E-mail"
           {...register('email')}
         />
+
+        <Input
+          className={styles.input}
+          style={errors.email && { border: '1px solid #F77B7D' }}
+          type='email'
+          placeholder="E-mail"
+          {...register('email')}
+        />
+
+		  
         <input
           style={errors.password && { border: '1px solid #F77B7D' }}
           className={styles.input}
