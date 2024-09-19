@@ -1,0 +1,65 @@
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.rowWrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.inputsWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.inputTitle {
+  color: #1e354e;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.input {
+  border-radius: 8px;
+  border: 1px solid #e2e5ea;
+  height: 52px;
+  padding: 0 16px;
+  outline: none;
+  margin-top: 16px;
+}
+
+.input::placeholder {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.buttonsWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.buttonWrapper button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  width: 200px;
+}
+
+.errorMessage {
+  color: #f77b7d;
+  font-size: 12px;
+  margin-top: -15px;
+}
+
+@media (max-width: 768px) {
+  .rowWrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
