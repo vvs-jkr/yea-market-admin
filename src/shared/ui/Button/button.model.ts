@@ -4,13 +4,11 @@ export type ButtonVariantTypes = 'primary' | 'secondary' | 'outline' | 'tertiary
 
 export type ButtonSize = 'M' | 'L'
 
-export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string
   variant?: ButtonVariantTypes
-  className?: string
   iconLeft?: React.ReactNode
   iconRight?: React.ReactNode
   size?: ButtonSize
   destructive?: boolean
-  disabled?: boolean
 }

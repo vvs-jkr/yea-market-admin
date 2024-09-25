@@ -11,5 +11,3 @@ export enum ErrorsMessages {
 	email: string
 	phone: string
  }
-
- 

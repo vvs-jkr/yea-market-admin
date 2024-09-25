@@ -11,7 +11,12 @@ export default function Products() {
     return (
         <div className={styles.container}>
             <Button onClick={onToggle} variant='outline' label='Add Product' iconLeft={<Icon icon='Box' />} />
-            <ModalBox onAction={() => null} isOpen={state} actionButtonLabel='Save' modalTitle='Product' onClose={onToggle}>
+            <ModalBox 
+				onAction={() => null} 
+				isOpen={state} 
+				actionButtonLabel='Save' 
+				modalTitle='Product' 
+				onClose={onToggle}>
                 {({ onAction }) => (
                     // Здесь можно передать onAction дочернему компоненту или использовать непосредственно
                     <div>

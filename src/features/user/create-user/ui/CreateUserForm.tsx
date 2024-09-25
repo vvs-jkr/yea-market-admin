@@ -1,8 +1,10 @@
+import UserForm from '@/entities/user/ui/UserForm'
+import { ModalBox } from '@/shared/ui/ModalBox/ModalBox'
 import React from 'react'
 
-const CreateUserForm = () => {
+const CreateUserForm: React.FC = () => {
   return (
-	 <div>CreateUserForm</div>
+<></>
   )
 }
 

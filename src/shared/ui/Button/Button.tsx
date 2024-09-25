@@ -29,7 +29,7 @@ const Button = ({
   )
 
   return (
-    <button disabled={disabled} type="button" className={btnClasses} {...props}>
+    <button disabled={disabled} className={btnClasses} {...props}>
       {Boolean(iconLeft) && iconLeft}
       {label}
       {Boolean(iconRight) && iconRight}
