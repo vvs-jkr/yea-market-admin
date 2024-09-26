@@ -1,13 +1,12 @@
-import { ModalBox } from '@/shared/ui/ModalBox/ModalBox'
-import UserForm from '../../../../entities/user/ui/UserForm'
+import UserForm from '@/entities/user/ui/UserForm'
 import { IUserForm, UserRole } from '@/entities/user/ui/userForm.model'
-import React, { useState } from 'react'
-import Button from '@/shared/ui/Button/Button'
 import Icon from '@/shared/ui/Icon/Icon'
+import { ModalBox } from '@/shared/ui/ModalBox/ModalBox'
+import React, { useState } from 'react'
 import styles from './styles.module.css'
+import Button from '@/shared/ui/Button/Button'
 
-const EditUser: React.FC = () => {
-  //   const [updateUser] = useMutation(api.updateUser)
+const CreateUser: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const initialUserData: IUserForm = {
@@ -43,15 +42,15 @@ const EditUser: React.FC = () => {
           onClose={handleCloseModal}
           onAction={() => {}}>
           {({ onAction }) => (
-            <UserForm
-              defaultValues={initialUserData}
-              onSubmit={(data) => {
-                
-
-                handleUpdateUser(data)
-                onAction()
-              }}
-            />
+            <>
+              <UserForm
+                defaultValues={initialUserData}
+                onSubmit={(data) => {
+                  onAction()
+                  handleUpdateUser(data)
+                }}
+              />
+            </>
           )}
         </ModalBox>
       </div>
@@ -59,4 +58,4 @@ const EditUser: React.FC = () => {
   )
 }
 
-export default EditUser
+export default CreateUser

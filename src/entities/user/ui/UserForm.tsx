@@ -10,8 +10,8 @@ import { useNavigate } from 'react-router-dom'
 import { useCreateUserMutation } from '../api/userApi'
 
 const UserForm: React.FC<UserFormProps> = ({ defaultValues, onSubmit }) => {
-  const [createUser] = useCreateUserMutation()
-  const navigate = useNavigate()
+//   const [createUser] = useCreateUserMutation()
+//   const navigate = useNavigate()
 
   //  useEffect(()=>{
   // 	if(defaultValues) {
@@ -24,26 +24,26 @@ const UserForm: React.FC<UserFormProps> = ({ defaultValues, onSubmit }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
     reset
   } = useForm({
     resolver: yupResolver(userValidationSchema),
     defaultValues
   })
 
-  const onCreateUser = async (data: IUserForm) => {
-    try {
-      await createUser(data)
-      reset()
-      // navigate('/user')
-      console.log('User created successfully')
-    } catch (error) {
-      console.error('Failed to create user', error)
-    }
-  }
+//   const onCreateUser = async (data: IUserForm) => {
+//     try {
+//       await createUser(data)
+//       reset()
+//       // navigate('/user')
+//       console.log('User created successfully')
+//     } catch (error) {
+//       console.error('Failed to create user', error)
+//     }
+//   }
 
   const submit: SubmitHandler<IUserForm> = (data) => {
-    console.log(data)
+    onSubmit(data)
   }
 
   return (
@@ -153,17 +153,9 @@ const UserForm: React.FC<UserFormProps> = ({ defaultValues, onSubmit }) => {
         </div>
       </div>
 
-      <div className={styles.buttonsWrapper} style={{ color: '#353E5C' }}>
-        <Button
-          type="submit"
-         //  disabled={!isValid}
-          iconLeft={<Icon icon="Save" />}
-          style={{ width: '100%', backgroundColor: '#353E5C' }}
-          label="Apply Changes"
-        />
-      </div>
-
-      <div className={styles.buttonsWrapper} style={{ color: '#353E5C' }}></div>
+      {/* <div className={styles.buttonsWrapper} style={{ color: '#353E5C' }}>
+        <Button type="submit" iconLeft={<Icon icon="Save" />} style={{ width: '100%' }} label="Apply Changes" />
+      </div> */}
     </form>
   )
 }

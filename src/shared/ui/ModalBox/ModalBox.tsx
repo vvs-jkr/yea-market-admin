@@ -32,6 +32,7 @@ export function ModalBox(props: ModalBoxProps) {
           <div className={styles.modalContent}>{children({ onAction })}</div>
           <div className={styles.modalFooter}>
             <Button
+              type="submit"
               onClick={onAction}
               label={actionButtonLabel}
               className={styles.actionButton}

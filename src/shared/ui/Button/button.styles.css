@@ -27,7 +27,7 @@
 /* primary */
 .btn__primary {
   color: var(--color-white);
-  background-color: var(--color-warm-black);
+  background-color: var(--color-btn);
 }
 
 .btn__primary:not(.btn__primary_disabled):hover {
